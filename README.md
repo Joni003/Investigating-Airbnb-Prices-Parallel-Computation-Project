@@ -1,7 +1,10 @@
 # Project_405
 
-# Members
-karanezi, Karanezi, Jon
+### **Title**
+Investigating Factors Influencing Airbnb Listing Prices
+
+### Members
+Jon Karanezi, Jingzhe Zhang, Jacob Stugelmeyer, Max Gehred, Eigene Ohba
 
 ### Data Extraction
 `./script.sh`
