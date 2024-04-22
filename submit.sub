@@ -1,21 +1,16 @@
-# submit file
-
 universe = vanilla
+log    =    ../log/myscript-chtc_$(Cluster)_$(Process).log
+error  =  ../error/myscript-chtc_$(Cluster)_$(Process).err
+output = ../output/myscript-chtc_$(Cluster)_$(Process).out
 
-log = log/$(Cluster)_$(Process).log
-error = error/$(Cluster)_$(Process).err
-output = output/$(Cluster)_$(Process).out
-
-executable = submit.sh
-arguments = $(file)
-
+executable = ./submit.sh
+arguments = $(link)
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
-
-transfer_input_files = $(file)
+initialdir = listings/
 
 request_cpus = 1
 request_memory = 1GB
-request_disk = 1MB
+request_disk = 500MB
 
-queue file from InputFileList
+queue link from file.txt
