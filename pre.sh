@@ -9,6 +9,7 @@ mv get-the-data input.html
 
 # Create a data directory
 mkdir -p listings
+mkdir -p log
 
 # Extract hyperlinks associated with listings.csv.gz, calendar.csv.gz, reviews.csv.gz
 grep -Eo 'href="([^"]*\/(listings)\.csv\.gz)"' input.html | \
