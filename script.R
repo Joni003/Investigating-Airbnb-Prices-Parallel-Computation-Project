@@ -4,8 +4,14 @@
 
 # Average review above 4.5 stars
 
+# Check if command line arguments are provided
+if (length(commandArgs(trailingOnly = TRUE)) != 1) {
+    cat("usage: Rscript script.R <city_listing.csv> \n")
+    quit(status = 1)
+}
 
-#df = read.csv("listings.csv")
+
+df = read.csv(commandArgs(trailingOnly = TRUE)[1])
 
 # head(df, 5)
 
@@ -56,6 +62,9 @@ filtered_df <- filtered_df[filtered_df$host_since < as.Date("2018-01-01"), ]
 # Omit NA values
 filtered_df <- na.omit(filtered_df)
 
-#nrow(filtered_df)
+# Prepare output file name
+file_name <- sub("\\.csv$", "", basename(commandArgs(trailingOnly = TRUE)[1]))
+output_file <- paste0(filename, "_filtered", ".csv")
 
-head(filtered_df, 5)
+## Save to CSV
+write.csv(filtered_df, output_file, row.names = FALSE)
