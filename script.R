@@ -62,6 +62,6 @@ filtered_df <- na.omit(filtered_df)
 
 # Prepare output file name
 file_name <- sub("\\.csv$", "", basename(commandArgs(trailingOnly = TRUE)[1]))
-output_file <- paste0(filename, "_filtered", ".csv")
+output_file <- paste0(file_name, "_filtered", ".csv")
 
 write.csv(filtered_df, output_file, row.names = FALSE)
