@@ -7,8 +7,6 @@
 
 #df = read.csv("listings.csv")
 
-# head(df, 5)
-
 desired_columns <- c("id", 
                      "host_id", 
                      "host_name", 
@@ -56,6 +54,6 @@ filtered_df <- filtered_df[filtered_df$host_since < as.Date("2018-01-01"), ]
 # Omit NA values
 filtered_df <- na.omit(filtered_df)
 
-#nrow(filtered_df)
+output_file = paste0(city, ".csv")
 
-head(filtered_df, 5)
+write.csv(filtered_df, output_file, row.names = FALSE)
