@@ -1,5 +1,10 @@
 #!/bin/bash
 
+tar -xzf R413.tar.gz
+
+export PATH=$PWD/R/bin:$PATH
+export RHOME=$PWD/R
+
 link=$1
 
 #destination_dir="./listings"
@@ -18,3 +23,4 @@ gzip -d -c "$gz_file_path" > "$filename"
 
 rm "$gz_file_path"
 
+Rscript script.R $filename
