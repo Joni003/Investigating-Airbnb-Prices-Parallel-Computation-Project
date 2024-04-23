@@ -4,7 +4,7 @@
 Investigating Factors Influencing Airbnb Listing Prices
 
 ### Members
-Jon Karanezi, Jingzhe Zhang, Jacob Stugelmeyer, Max Gehred, Eigene Ohba
+Jon Karanezi, Jingzhe Zhang, Jacob Stugelmeyer, Max Gehred, Eugene Ohba
 
 ### Data Extraction
 `./script.sh`
