@@ -13,8 +13,6 @@ if (length(commandArgs(trailingOnly = TRUE)) != 1) {
 
 df = read.csv(commandArgs(trailingOnly = TRUE)[1])
 
-# head(df, 5)
-
 desired_columns <- c("id", 
                      "host_id", 
                      "host_name", 
@@ -66,5 +64,4 @@ filtered_df <- na.omit(filtered_df)
 file_name <- sub("\\.csv$", "", basename(commandArgs(trailingOnly = TRUE)[1]))
 output_file <- paste0(filename, "_filtered", ".csv")
 
-## Save to CSV
 write.csv(filtered_df, output_file, row.names = FALSE)
