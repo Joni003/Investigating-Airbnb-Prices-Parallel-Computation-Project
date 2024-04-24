@@ -1,3 +1,7 @@
 #submit.sub#
 data/
 input.html
+error/
+output/
+listings/
+log/
