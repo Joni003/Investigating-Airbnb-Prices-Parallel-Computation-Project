@@ -1,0 +1,126 @@
+Stat 405 Final Project: Establishing a Worldwide Airbnb "Trusted Hosts" List
+
+##Max Gehred, Jake Stugelmeyer, Eugene Ohba, Jingzhe Zhang, Jon Karanezi
+
+Introduction + Motivation:
+In recent years, the Airbnb platform has witnessed a concerning increase in the presence of scammer hosts, as highlighted in a University of Colorado report. This surge in fraudulent activities, including account hacking and deceptive bookings, has underscored the urgent need for travelers to have access to a curated list of trusted hosts they can rely on. Recognizing this imperative, our project endeavors to analyze millions of Airbnb listings across cities worldwide to compile a comprehensive roster of "trusted hosts" who meet stringent criteria.
+
+Our Data:
+For our analysis, we utilized the Airbnb dataset publicly available: "Inside Airbnb," comprising three primary CSV files for the largest cities in each country. 
+
+# of Cities : 121
+Features/Columns : 75
+
+CSV Files:
+listings.csv
+Host Details
+Listing details 
+Review summary statistics by listing
+reviews.csv
+Reviews given to each Airbnb in our dataset
+Associated listing IDs to cross-reference with other CSV files
+calendar.csv
+Daily information on prices associated with each Airbnb
+Useful for looking at price fluctuations over time span
+
+We primarily focused on "listings.csv" since it provided a comprehensive overview of each Airbnb in a given city. The other csv files added supplementary information which could be impactful for a more comprehensive and detailed analysis.
+
+Data Cleaning Process:
+To streamline our analysis, we cleaned the data, selecting the 14 most pertinent columns from each of the 121 cities' datasets. This process involved filtering out irrelevant information and narrowing down the host selection to under 100 per city.
+
+
+
+14 Desired Columns:
+
+
+Filtering Process:
+Using 4 key attributes noted below, we chose the 14 most important columns to filter the data. We cleaned the data from each of the 121 cities, filtering each city down from thousands of hosts to under 100.
+
+"Trusted Host" Attributes and Justification:
+Our criteria for identifying "trusted hosts" include:
+Superhost Status: Demonstrates excellent guest satisfaction and reliability beyond statistics.
+10 or More Listings: Reflects dedication to Airbnb and incentivizes a positive guest experience.
+Average Review Score Above 4.5 Stars: Indicates a commitment to maintaining high standards of guest satisfaction.
+Hosting Prior to 2018: Shows a long-term positive track record, signifying reliability over many years.
+
+
+Parallel Computing Use:
+Utilizing parallel computing techniques significantly expedited our data extraction process. Running 121 jobs in parallel reduced our runtime to just 10 minutes, compared to the sequential runtime of 20 hours.
+
+Pipeline Overview:
+Airbnb.dag: Orchestrates the entire pipeline.
+pre.sh: Retrieves all necessary links for CSV file scraping, saving them to "file.txt".
+submit.sub: Executes on condor CHTC machines to run "script.sh" for each link in "file.txt". Requests resources: 1 CPU, 1GB memory, 500MB disk.
+
+
+script.sh: Utilizes wget to download each city's CSV file, processes it into a directory, and feeds the "listings.csv" file to "script.R".
+
+
+script.R: Filters the data, producing a refined format as output.
+
+post.sh: Handles cleanup of unused data and file management for easy access to filtered data, ensuring a condensed and nicely formatted output.
+
+Results:
+Our analysis yielded a list of trusted hosts across various cities, such as Buenos Aires, Cape Town, and Chicago. Additionally, we employed the Haversine formula to calculate the distances of Airbnb listings from the city center in our interactive demo.
+
+Live Demo:
+During the live demo, we showcased our filtered CSV data and demonstrated the application of the Haversine formula for the selected cities. For our visualization, we created an interactive map using RStudio and the Leaflet package, featuring Buenos Aires, Chicago, and Cape Town as examples. We extracted the top 20 most highly-reviewed host locations from a CSV file for each city and plotted them on the map to showcase popular hosting spots across these diverse locations. The red point on the graph represents the center of the city, where the blue points are the host locations.
+Buenos Aires, Argentina
+Cape Town, South Africa
+Chicago, Illinois
+
+
+Here is an example of the Chicago map
+
+
+
+
+
+
+
+
+     
+
+Conclusion:
+Through the efficient utilization of parallel computing, we successfully extracted filtered data for trusted Airbnb hosts. Moving forward, our project opens avenues for further explorations, including integrating data into practical applications, comparing key metrics between cities, analyzing price fluctuations based on the time of year, and visualizing peak seasons across different cities. This project not only addresses the immediate need for trustworthy Airbnb hosts but also lays the groundwork for future investigations into the dynamics of the vacation rental market worldwide
+
+Possible Changes
+For our visualization, we could have assigned the red point to the airport of the city rather than the center because it would be ideal for travelers to know how far the host is from the airport.
+
+We could also incorporate submitting parallel jobs of all the maps of the different cities. Due to time conflict, we were only able to manually create three maps.
+We could use more features in the csv file to answer additional questions.
+
+Contribution:
+
+Member
+Proposal
+Coding
+Presentation
+Report
+Eugene Ohba
+1
+1
+1
+1
+Jon Karanezi
+1
+1
+1
+1
+Max Gehred
+1
+1
+1
+1
+Jingzhe Zhang
+1
+1
+1
+1
+Jake Stugelmeyer
+1
+1
+1
+1
+
+
