@@ -1,17 +1,7 @@
-# Project_405
-
 ### **Title**
 Investigating Factors Influencing Airbnb Listing Prices
 
+- Final Project for Statistics 405 Course (Big Data Computing) 
+
 ### Members
 Jon Karanezi, Jingzhe Zhang, Jacob Stugelmeyer, Max Gehred, Eugene Ohba
-
-### Data Extraction
-`./script.sh`
-Returns:
-- data/
-  - file.txt --> all the download hyperlinks
-  - locations.txt --> file directories for locations
-  - data for each country/region/city
-
-
