@@ -1,5 +1,4 @@
-### **Title**
-Investigating Factors Influencing Airbnb Listing Prices
+### **Investigating Factors Influencing Airbnb Listing Prices**
 
 - Final Project for Statistics 405 Course (Big Data Computing) 
 
